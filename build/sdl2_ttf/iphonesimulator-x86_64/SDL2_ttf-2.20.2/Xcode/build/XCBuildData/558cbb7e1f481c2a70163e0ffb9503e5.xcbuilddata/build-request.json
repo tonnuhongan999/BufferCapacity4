@@ -1,0 +1,48 @@
+{
+  "buildCommand" : {
+    "command" : "build",
+    "skipDependencies" : false,
+    "style" : "buildAndRun"
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "d5cd01c7177da41ca7791b5dd1c0c416b92ad1955b204c9b88983773ce473b3e"
+    }
+  ],
+  "containerPath" : "/Users/tonnu.hongan999/Documents/BufferCapacity4/build/sdl2_ttf/iphonesimulator-x86_64/SDL2_ttf-2.20.2/Xcode/SDL_ttf.xcodeproj",
+  "continueBuildingAfterErrors" : false,
+  "dependencyScope" : "workspace",
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "configurationName" : "Release",
+    "overrides" : {
+      "commandLine" : {
+        "table" : {
+          "ARCHS" : "x86_64",
+          "GCC_PREPROCESSOR_DEFINITIONS" : "$(GCC_PREPROCESSOR_DEFINITIONS) FT_CONFIG_OPTION_USE_PNG=1",
+          "GENERATE_MASTER_OBJECT_FILE" : "YES",
+          "HEADER_SEARCH_PATHS" : "/Users/tonnu.hongan999/Documents/BufferCapacity4/dist/include/common/sdl2 /Users/tonnu.hongan999/Documents/BufferCapacity4/dist/include/common/libpng",
+          "IDEBuildOperationMaxNumberOfConcurrentCompileTasks" : "12",
+          "ONLY_ACTIVE_ARCH" : "NO",
+          "SDKROOT" : "iphonesimulator17.5"
+        }
+      },
+      "synthesized" : {
+        "table" : {
+          "ACTION" : "build",
+          "COLOR_DIAGNOSTICS" : "YES",
+          "diagnostic_message_length" : "80",
+          "ENABLE_PREVIEWS" : "NO",
+          "ENABLE_XOJIT_PREVIEWS" : "NO"
+        }
+      }
+    }
+  },
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : false,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : false
+}

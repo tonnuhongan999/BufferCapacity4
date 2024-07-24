@@ -1,0 +1,496 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01532DAA137C099F0076F6BF /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 01532DA9137C099F0076F6BF /* icon.png */; };
+		06C740B981A8077195E3EB64 /* libios.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20F04275B3AC47192DC451DB /* libios.xcframework */; };
+		0BE748F6ABE474074F6B00C6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88074858805F7FE750A8236A /* AudioToolbox.framework */; };
+		101B447B9A1958FB818A0F28 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 328F41D19DA0C6CE40998445 /* WebKit.framework */; };
+		13E5422883AC67B9D3B879CA /* libffi.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABF4E659F639782BCD73011 /* libffi.xcframework */; };
+		167A46E2B2C0C83D41B64169 /* libSDL2_ttf.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC84C939357DA7177AE847D /* libSDL2_ttf.xcframework */; };
+		18C5419C9471ADD78971699A /* libcrypto.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07DE41D59E91F293B5ABF1E2 /* libcrypto.xcframework */; };
+		1D0846B9873DD0466EC14F13 /* CoreHaptics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB1409C8B9002FB0FFD706D /* CoreHaptics.framework */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1F664C068CEE4D09EE38AB9B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4234A62BD4FD1288215DB0F /* MobileCoreServices.framework */; };
+		229E4A3786DD64FA0A022DE8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33824ED78454CF7E99F71F74 /* AVFoundation.framework */; };
+		25BF4EC2BAFFA686606A2F70 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E53A4289AC6CC401A204F553 /* OpenGLES.framework */; };
+		2CB5F34717D5233A006187AB /* bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB5F34617D5233A006187AB /* bridge.m */; };
+		2E7B41BF9B25096C5F5892B2 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26547919690EF8D4412FF5F /* CoreVideo.framework */; };
+		32B640CDBBAAFCAA8395A9A6 /* libpyobjus.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD34AD4AC3DB059B532B004 /* libpyobjus.xcframework */; };
+		428A4D9EB1354826D6D0FF21 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB144A54B1F667BEB649E99A /* UIKit.framework */; };
+		4E0648989AD99643135B16AB /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D8D4EC7BF9AD0BEDB920A90 /* ImageIO.framework */; };
+		577C4270BD2706A62A9DE97F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EDD47229A4C52664169F2A3 /* MessageUI.framework */; };
+		595844B68C8365D81CC0494E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A941829A303A7EEF28E81E /* QuartzCore.framework */; };
+		59738AB51A8BB5D8001B2C0C /* lib in Resources */ = {isa = PBXBuildFile; fileRef = 59738AB41A8BB5D8001B2C0C /* lib */; };
+		59738ABB1A8E19AA001B2C0C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59738ABA1A8E19AA001B2C0C /* Images.xcassets */; };
+		59994E3B148E85C800863906 /* YourApp in Resources */ = {isa = PBXBuildFile; fileRef = 59994E3A148E85C800863906 /* YourApp */; };
+		59FDEA8B21E7D34E004E6ECE /* include in Resources */ = {isa = PBXBuildFile; fileRef = 59FDEA8A21E7D34E004E6ECE /* include */; };
+		821B4127A37698B7EA4730FE /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15954D269A260CAB7B479B95 /* CoreMotion.framework */; };
+		85BE49698C8FEC4C2170635C /* libSDL2_mixer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FD43CEAA54BB155D7B0FCB /* libSDL2_mixer.xcframework */; };
+		878046DB8C26D56299C4CD81 /* libpng16.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F8247C3837A19C8E5D15765 /* libpng16.xcframework */; };
+		8CFF40B1B785719EBB5455A4 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E03406490E9EB7050D74308 /* libsqlite3.tbd */; };
+		9EB34DE29E0638679C56F8FC /* libSDL2_image.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7014697B0B69B3A27A1E62B /* libSDL2_image.xcframework */; };
+		AC5106F52959EE4E00655416 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC5106F42959EE4E00655416 /* Launch Screen.storyboard */; };
+		AD1C45D4B6EDFD5527384EC0 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD74C8BA2926758D8C81247 /* Metal.framework */; };
+		B2EE4DD48200A32C62FC9805 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 816244F3902BE95A542C624C /* libz.tbd */; };
+		B66C4E54AE1D966806EC5FA6 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEDD42C3BD43D7F348B0CE13 /* Accelerate.framework */; };
+		C4B448C4A08A8CED59D469F7 /* libssl.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD44261B6D046460575FBE0 /* libssl.xcframework */; };
+		C835495CA5A0388BCC7FA9EC /* libkivy.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B94F379D15E77310E39B03 /* libkivy.xcframework */; };
+		C8434CC1B141ED1C8C70B79E /* libSDL2.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5854F2D931FDFEFF237477C /* libSDL2.xcframework */; };
+		CC524AA6BA780E3BE23ABC40 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85144B0983E04644A8CBAECE /* GameController.framework */; };
+		CC7F40F0844398F85345600C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE254F68AA3D0FC17D399426 /* CoreGraphics.framework */; };
+		DB1440E6A2BA778E98A8B6A3 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E39F4D659DAC75F51B3427A0 /* libc++.tbd */; };
+		DBCC4618AE58FC57683A27E1 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18D4174BE6D5373275D4A32 /* Photos.framework */; };
+		DE5D46D083288A45D0AC649C /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 46FA48379E56E58EB0E6654B /* libbz2.tbd */; };
+		FC1D431789AF47A1F739FE47 /* libpython3.11.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C0413F8A0ED9F03EB0879A /* libpython3.11.xcframework */; };
+		FFD94B94820D21DD8A2666E6 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849C45D6B268F6077671D32F /* CoreMedia.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		01532DA9137C099F0076F6BF /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		06C0413F8A0ED9F03EB0879A /* libpython3.11.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libpython3.11.xcframework; path = ../dist/xcframework/libpython3.11.xcframework; sourceTree = SOURCE_ROOT; };
+		07DE41D59E91F293B5ABF1E2 /* libcrypto.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libcrypto.xcframework; path = ../dist/xcframework/libcrypto.xcframework; sourceTree = SOURCE_ROOT; };
+		0E03406490E9EB7050D74308 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
+		15954D269A260CAB7B479B95 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+		1D6058910D05DD3D006BFB54 /* buffercapacity4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = buffercapacity4.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		20F04275B3AC47192DC451DB /* libios.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libios.xcframework; path = ../dist/xcframework/libios.xcframework; sourceTree = SOURCE_ROOT; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2CB5F34517D5233A006187AB /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = SOURCE_ROOT; };
+		2CB5F34617D5233A006187AB /* bridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bridge.m; sourceTree = SOURCE_ROOT; };
+		328F41D19DA0C6CE40998445 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = WebKit.framework; sourceTree = DEVELOPER_DIR; };
+		33824ED78454CF7E99F71F74 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		38B94F379D15E77310E39B03 /* libkivy.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libkivy.xcframework; path = ../dist/xcframework/libkivy.xcframework; sourceTree = SOURCE_ROOT; };
+		46FA48379E56E58EB0E6654B /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = libbz2.tbd; sourceTree = DEVELOPER_DIR; };
+		4CD44261B6D046460575FBE0 /* libssl.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libssl.xcframework; path = ../dist/xcframework/libssl.xcframework; sourceTree = SOURCE_ROOT; };
+		4CD74C8BA2926758D8C81247 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = Metal.framework; sourceTree = DEVELOPER_DIR; };
+		59738AB41A8BB5D8001B2C0C /* lib */ = {isa = PBXFileReference; lastKnownFileType = folder; name = lib; path = /Users/tonnu.hongan999/Documents/BufferCapacity4/dist/root/python3/lib; sourceTree = "<group>"; };
+		59738ABA1A8E19AA001B2C0C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = buffercapacity4/Images.xcassets; sourceTree = "<group>"; };
+		59994E3A148E85C800863906 /* YourApp */ = {isa = PBXFileReference; lastKnownFileType = folder; path = YourApp; sourceTree = "<group>"; };
+		59FDEA8A21E7D34E004E6ECE /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; name = include; path = /Users/tonnu.hongan999/Documents/BufferCapacity4/dist/root/python3/include; sourceTree = "<group>"; };
+		5DC84C939357DA7177AE847D /* libSDL2_ttf.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libSDL2_ttf.xcframework; path = ../dist/xcframework/libSDL2_ttf.xcframework; sourceTree = SOURCE_ROOT; };
+		5EDD47229A4C52664169F2A3 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = MessageUI.framework; sourceTree = DEVELOPER_DIR; };
+		7AB1409C8B9002FB0FFD706D /* CoreHaptics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreHaptics.framework; path = CoreHaptics.framework; sourceTree = DEVELOPER_DIR; };
+		7D8D4EC7BF9AD0BEDB920A90 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = ImageIO.framework; sourceTree = DEVELOPER_DIR; };
+		7F8247C3837A19C8E5D15765 /* libpng16.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libpng16.xcframework; path = ../dist/xcframework/libpng16.xcframework; sourceTree = SOURCE_ROOT; };
+		816244F3902BE95A542C624C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = libz.tbd; sourceTree = DEVELOPER_DIR; };
+		81FD43CEAA54BB155D7B0FCB /* libSDL2_mixer.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libSDL2_mixer.xcframework; path = ../dist/xcframework/libSDL2_mixer.xcframework; sourceTree = SOURCE_ROOT; };
+		849C45D6B268F6077671D32F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
+		85144B0983E04644A8CBAECE /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = GameController.framework; sourceTree = DEVELOPER_DIR; };
+		88074858805F7FE750A8236A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		8D1107310486CEB800E47090 /* buffercapacity4-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "buffercapacity4-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		A18D4174BE6D5373275D4A32 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = Photos.framework; sourceTree = DEVELOPER_DIR; };
+		A4234A62BD4FD1288215DB0F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
+		AB144A54B1F667BEB649E99A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		AC5106F42959EE4E00655416 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "Storyboards/Launch Screen.storyboard"; sourceTree = "<group>"; };
+		AE254F68AA3D0FC17D399426 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		B26547919690EF8D4412FF5F /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = CoreVideo.framework; sourceTree = DEVELOPER_DIR; };
+		B5854F2D931FDFEFF237477C /* libSDL2.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libSDL2.xcframework; path = ../dist/xcframework/libSDL2.xcframework; sourceTree = SOURCE_ROOT; };
+		C7014697B0B69B3A27A1E62B /* libSDL2_image.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libSDL2_image.xcframework; path = ../dist/xcframework/libSDL2_image.xcframework; sourceTree = SOURCE_ROOT; };
+		CABF4E659F639782BCD73011 /* libffi.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libffi.xcframework; path = ../dist/xcframework/libffi.xcframework; sourceTree = SOURCE_ROOT; };
+		CDD34AD4AC3DB059B532B004 /* libpyobjus.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libpyobjus.xcframework; path = ../dist/xcframework/libpyobjus.xcframework; sourceTree = SOURCE_ROOT; };
+		DEDD42C3BD43D7F348B0CE13 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Accelerate.framework; sourceTree = DEVELOPER_DIR; };
+		E39F4D659DAC75F51B3427A0 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "libc++.tbd"; sourceTree = DEVELOPER_DIR; };
+		E4A941829A303A7EEF28E81E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		E53A4289AC6CC401A204F553 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F664C068CEE4D09EE38AB9B /* MobileCoreServices.framework in Frameworks */,
+				2E7B41BF9B25096C5F5892B2 /* CoreVideo.framework in Frameworks */,
+				229E4A3786DD64FA0A022DE8 /* AVFoundation.framework in Frameworks */,
+				FFD94B94820D21DD8A2666E6 /* CoreMedia.framework in Frameworks */,
+				AD1C45D4B6EDFD5527384EC0 /* Metal.framework in Frameworks */,
+				1D0846B9873DD0466EC14F13 /* CoreHaptics.framework in Frameworks */,
+				428A4D9EB1354826D6D0FF21 /* UIKit.framework in Frameworks */,
+				101B447B9A1958FB818A0F28 /* WebKit.framework in Frameworks */,
+				25BF4EC2BAFFA686606A2F70 /* OpenGLES.framework in Frameworks */,
+				CC7F40F0844398F85345600C /* CoreGraphics.framework in Frameworks */,
+				0BE748F6ABE474074F6B00C6 /* AudioToolbox.framework in Frameworks */,
+				4E0648989AD99643135B16AB /* ImageIO.framework in Frameworks */,
+				B66C4E54AE1D966806EC5FA6 /* Accelerate.framework in Frameworks */,
+				821B4127A37698B7EA4730FE /* CoreMotion.framework in Frameworks */,
+				CC524AA6BA780E3BE23ABC40 /* GameController.framework in Frameworks */,
+				595844B68C8365D81CC0494E /* QuartzCore.framework in Frameworks */,
+				577C4270BD2706A62A9DE97F /* MessageUI.framework in Frameworks */,
+				DBCC4618AE58FC57683A27E1 /* Photos.framework in Frameworks */,
+				B2EE4DD48200A32C62FC9805 /* libz.tbd in Frameworks */,
+				8CFF40B1B785719EBB5455A4 /* libsqlite3.tbd in Frameworks */,
+				DE5D46D083288A45D0AC649C /* libbz2.tbd in Frameworks */,
+				DB1440E6A2BA778E98A8B6A3 /* libc++.tbd in Frameworks */,
+				FC1D431789AF47A1F739FE47 /* libpython3.11.xcframework in Frameworks */,
+				C835495CA5A0388BCC7FA9EC /* libkivy.xcframework in Frameworks */,
+				32B640CDBBAAFCAA8395A9A6 /* libpyobjus.xcframework in Frameworks */,
+				C8434CC1B141ED1C8C70B79E /* libSDL2.xcframework in Frameworks */,
+				85BE49698C8FEC4C2170635C /* libSDL2_mixer.xcframework in Frameworks */,
+				06C740B981A8077195E3EB64 /* libios.xcframework in Frameworks */,
+				C4B448C4A08A8CED59D469F7 /* libssl.xcframework in Frameworks */,
+				9EB34DE29E0638679C56F8FC /* libSDL2_image.xcframework in Frameworks */,
+				878046DB8C26D56299C4CD81 /* libpng16.xcframework in Frameworks */,
+				167A46E2B2C0C83D41B64169 /* libSDL2_ttf.xcframework in Frameworks */,
+				13E5422883AC67B9D3B879CA /* libffi.xcframework in Frameworks */,
+				18C5419C9471ADD78971699A /* libcrypto.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2CB5F34517D5233A006187AB /* bridge.h */,
+				2CB5F34617D5233A006187AB /* bridge.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* buffercapacity4.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				AC5106F32959EE3800655416 /* Storyboards */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				29B97316FDCFA39411CA2CEA /* main.m */,
+				59994E3A148E85C800863906 /* YourApp */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				59738ABA1A8E19AA001B2C0C /* Images.xcassets */,
+				59738AB41A8BB5D8001B2C0C /* lib */,
+				59FDEA8A21E7D34E004E6ECE /* include */,
+				01532DA9137C099F0076F6BF /* icon.png */,
+				8D1107310486CEB800E47090 /* buffercapacity4-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A4234A62BD4FD1288215DB0F /* MobileCoreServices.framework */,
+				B26547919690EF8D4412FF5F /* CoreVideo.framework */,
+				33824ED78454CF7E99F71F74 /* AVFoundation.framework */,
+				849C45D6B268F6077671D32F /* CoreMedia.framework */,
+				4CD74C8BA2926758D8C81247 /* Metal.framework */,
+				7AB1409C8B9002FB0FFD706D /* CoreHaptics.framework */,
+				AB144A54B1F667BEB649E99A /* UIKit.framework */,
+				328F41D19DA0C6CE40998445 /* WebKit.framework */,
+				E53A4289AC6CC401A204F553 /* OpenGLES.framework */,
+				AE254F68AA3D0FC17D399426 /* CoreGraphics.framework */,
+				88074858805F7FE750A8236A /* AudioToolbox.framework */,
+				7D8D4EC7BF9AD0BEDB920A90 /* ImageIO.framework */,
+				DEDD42C3BD43D7F348B0CE13 /* Accelerate.framework */,
+				15954D269A260CAB7B479B95 /* CoreMotion.framework */,
+				85144B0983E04644A8CBAECE /* GameController.framework */,
+				E4A941829A303A7EEF28E81E /* QuartzCore.framework */,
+				5EDD47229A4C52664169F2A3 /* MessageUI.framework */,
+				A18D4174BE6D5373275D4A32 /* Photos.framework */,
+				816244F3902BE95A542C624C /* libz.tbd */,
+				0E03406490E9EB7050D74308 /* libsqlite3.tbd */,
+				46FA48379E56E58EB0E6654B /* libbz2.tbd */,
+				E39F4D659DAC75F51B3427A0 /* libc++.tbd */,
+				06C0413F8A0ED9F03EB0879A /* libpython3.11.xcframework */,
+				38B94F379D15E77310E39B03 /* libkivy.xcframework */,
+				CDD34AD4AC3DB059B532B004 /* libpyobjus.xcframework */,
+				B5854F2D931FDFEFF237477C /* libSDL2.xcframework */,
+				81FD43CEAA54BB155D7B0FCB /* libSDL2_mixer.xcframework */,
+				20F04275B3AC47192DC451DB /* libios.xcframework */,
+				4CD44261B6D046460575FBE0 /* libssl.xcframework */,
+				C7014697B0B69B3A27A1E62B /* libSDL2_image.xcframework */,
+				7F8247C3837A19C8E5D15765 /* libpng16.xcframework */,
+				5DC84C939357DA7177AE847D /* libSDL2_ttf.xcframework */,
+				CABF4E659F639782BCD73011 /* libffi.xcframework */,
+				07DE41D59E91F293B5ABF1E2 /* libcrypto.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AC5106F32959EE3800655416 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				AC5106F42959EE4E00655416 /* Launch Screen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* buffercapacity4 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "buffercapacity4" */;
+			buildPhases = (
+				113D17E2153E3DB5001310A5 /* ShellScript */,
+				113D17E2153E3DB5001310A6 /* ShellScript */,
+				113D17E2153E3DB5001310A7 /* ShellScript */,
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = buffercapacity4;
+			productName = buffercapacity4;
+			productReference = 1D6058910D05DD3D006BFB54 /* buffercapacity4.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "buffercapacity4" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* buffercapacity4 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59738AB51A8BB5D8001B2C0C /* lib in Resources */,
+				AC5106F52959EE4E00655416 /* Launch Screen.storyboard in Resources */,
+				59FDEA8B21E7D34E004E6ECE /* include in Resources */,
+				59738ABB1A8E19AA001B2C0C /* Images.xcassets in Resources */,
+				01532DAA137C099F0076F6BF /* icon.png in Resources */,
+				59994E3B148E85C800863906 /* YourApp in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		113D17E2153E3DB5001310A5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "rsync -av --delete \"/Users/tonnu.hongan999/Documents/BufferCapacity4\"/ \"$PROJECT_DIR\"/YourApp";
+		};
+		113D17E2153E3DB5001310A6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "/Users/tonnu.hongan999/Documents/BufferCapacity4/dist/hostpython3/bin/python -m compileall -f -b \"$PROJECT_DIR\"/YourApp";
+		};
+		113D17E2153E3DB5001310A7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "find \"$PROJECT_DIR\"/YourApp/ -regex '.*\\.py' -delete";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				2CB5F34717D5233A006187AB /* bridge.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_ARCHS = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Users/tonnu.hongan999/Documents/BufferCapacity4/dist/frameworks,
+					"$(SRCROOT)/../dist/xcframework",
+					"$(inherited)",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					"/Users/tonnu.hongan999/Documents/BufferCapacity4/dist/root/python3/include/python3.11/**",
+					/Users/tonnu.hongan999/Documents/BufferCapacity4/dist/include/common/sdl2,
+				);
+				INFOPLIST_FILE = "buffercapacity4-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/tonnu.hongan999/Documents/BufferCapacity4/dist/lib,
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_NAME = buffercapacity4;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_ARCHS = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Users/tonnu.hongan999/Documents/BufferCapacity4/dist/frameworks,
+					"$(SRCROOT)/../dist/xcframework",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					"/Users/tonnu.hongan999/Documents/BufferCapacity4/dist/root/python3/include/python3.11/**",
+					/Users/tonnu.hongan999/Documents/BufferCapacity4/dist/include/common/sdl2,
+				);
+				INFOPLIST_FILE = "buffercapacity4-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/tonnu.hongan999/Documents/BufferCapacity4/dist/lib,
+				);
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_NAME = buffercapacity4;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = NO;
+				STRIP_INSTALLED_PRODUCT = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DEAD_CODE_STRIPPING = NO;
+				ENABLE_BITCODE = NO;
+				USER_HEADER_SEARCH_PATHS = /Users/tonnu.hongan999/Documents/BufferCapacity4/dist/root/include/;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DEAD_CODE_STRIPPING = NO;
+				ENABLE_BITCODE = NO;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				USER_HEADER_SEARCH_PATHS = /Users/tonnu.hongan999/Documents/BufferCapacity4/dist/root/include/;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "buffercapacity4" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "buffercapacity4" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
