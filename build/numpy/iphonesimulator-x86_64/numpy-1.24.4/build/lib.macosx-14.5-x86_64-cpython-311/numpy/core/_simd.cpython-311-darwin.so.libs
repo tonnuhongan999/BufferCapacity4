@@ -1,1 +1,0 @@
--L/Users/tonnu.hongan999/Documents/BufferCapacity4/dist/lib/iphonesimulator -L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator17.5.sdk/usr/lib -Lbuild/temp.macosx-14.5-x86_64-cpython-311 -lnpymath

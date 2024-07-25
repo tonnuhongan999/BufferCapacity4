@@ -1,5 +1,0 @@
-#!/Users/tonnu.hongan999/Documents/BufferCapacity4/dist/hostpython3/bin/python3.11
-
-import pydoc
-if __name__ == '__main__':
-    pydoc.cli()
