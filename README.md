@@ -1,3 +1,9 @@
+# Commands
+
+Start pipenv in current shell (not subshell):
+
+`source $(pipenv --venv)/bin/activate`
+
 # Bugs
 
 1. scipy: https://stackoverflow.com/questions/73539112/ndk-version-conflict-in-buildozer-for-kivy-app
