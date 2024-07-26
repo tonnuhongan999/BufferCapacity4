@@ -4,3 +4,4 @@ buffercapacity4-ios/
 build/
 dist/
 touchtracer-ios/
+.buildozer/
