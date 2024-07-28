@@ -53,10 +53,10 @@ $(info JAVA_HOME is                  : $(JAVA_HOME))
 all: install_ndk
 
 # This is for ARM CPU
-# install_ndk: download_android_ndk_legacy download_android_ndk_gfortran_arm extract_android_ndk_legacy extract_android_ndk_gfortran_arm
+install_ndk: download_android_ndk_legacy download_android_ndk_gfortran_arm extract_android_ndk_legacy extract_android_ndk_gfortran_arm
 
 # This is for x86 CPU
-install_ndk: download_android_ndk_legacy download_android_ndk_gfortran_x86 extract_android_ndk_legacy extract_android_ndk_gfortran_x86
+# install_ndk: download_android_ndk_legacy download_android_ndk_gfortran_x86 extract_android_ndk_legacy extract_android_ndk_gfortran_x86
 
 download_android_ndk_legacy:
 	curl --location --progress-bar --continue-at - \
