@@ -14,7 +14,7 @@ chardet = "*"
 [dev-packages]
 buildozer = "*"
 pylint = "*"
-cython = "*"
+cython = "==0.29.33"
 
 [requires]
 python_version = "3.12"

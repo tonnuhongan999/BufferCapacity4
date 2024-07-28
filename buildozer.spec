@@ -37,7 +37,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = kivy,kivi_garden.graph,numpy,pandas,scipy,chardet
+requirements = kivy,kivy_garden.graph,numpy,pandas,scipy,chardet
 
 android.permissions = READ_EXTERNAL_STORAGE
 

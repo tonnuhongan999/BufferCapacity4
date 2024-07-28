@@ -36,16 +36,66 @@ docker exec -it ubuntu_container /bin/bash
 
 ## My activity log
 
-Install sudo
+### Install sudo
 
 ```
 apt update -y
 apt install sudo
 ```
 
-Target Android on Ubuntu 22.04
+### Target Android on Ubuntu 22.04
 
 https://buildozer.readthedocs.io/en/latest/installation.html#targeting-android
+
+```
+source ~/.bashrc
+```
+
+### Download pyenv
+
+https://www.dedicatedcore.com/blog/install-pyenv-ubuntu/
+
+### Setup LANG for pyenv
+
+https://stackoverflow.com/questions/49436922/getting-error-while-trying-to-run-this-command-pipenv-install-requests-in-ma
+
+https://stackoverflow.com/questions/66859800/bin-bash-warning-setlocale-lc-all-cannot-change-locale-en-us-utf-8
+
+```
+sudo apt install locales
+```
+
+### Run pipenv install
+
+To create a virtual environment at BufferCapacity4
+
+```
+pipenv install
+```
+
+### Run make
+
+To resolve the LEGACY_NDK issue
+
+```
+make
+export ANDROID_HOME=$HOME/.android
+export LEGACY_NDK=$ANDROID_HOME/android-ndk-legacy
+```
+
+### Need to install autopoint
+
+https://stackoverflow.com/questions/72555674/failed-to-run-autopoint-no-such-file-or-directory
+
+```
+sudo apt install autopoint
+```
+
+### Install Cpython inside pipenv
+
+```
+pipenv install -d Cython==0.29.33
+```
 
 # Docker (buildozer version)
 
