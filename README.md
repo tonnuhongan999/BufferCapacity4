@@ -97,6 +97,20 @@ sudo apt install autopoint
 pipenv install -d Cython==0.29.33
 ```
 
+### Send apk file from remote to local machine
+
+https://unix.stackexchange.com/questions/188285/how-to-copy-a-file-from-a-remote-server-to-a-local-machine
+
+We can simply use `docker cp my_ubuntu_container:/home/ubuntu/example.txt ~/Downloads/`
+
+### Run apk on Android Studio
+
+Run a virtual device first
+
+Then use `adb devices`
+
+Then use `adb -s emulator-5554 install path/to/myapp.apk`
+
 # Docker (buildozer version)
 
 ## Clone repo
