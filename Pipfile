@@ -15,6 +15,7 @@ chardet = "*"
 buildozer = "*"
 pylint = "*"
 cython = "==0.29.33"
+distutils = "*"
 
 [requires]
 python_version = "3.12"
