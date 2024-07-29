@@ -70,4 +70,4 @@ RUN pipenv install -d
 RUN echo 'export ANDROID_HOME="$HOME/.android"' >> ~/.bashrc
 RUN echo 'export LEGACY_NDK="$ANDROID_HOME/android-ndk-legacy"' >> ~/.bashrc
 
-# RUN ["/bin/bash", "-c", "source $(pipenv --venv)/bin/activate && make"]
+#RUN ["/bin/bash", "-c", "source $(pipenv --venv)/bin/activate && make"]
