@@ -25,7 +25,7 @@ RUN echo 'export PATH="$PATH:~/.local/bin/"' >> ~/.bashrc
 ## Clone project
 
 RUN mkdir BufferCapacity4
-RUN git clone https://github.com/tonnuhongan999/BufferCapacity4.git ./BufferCapacity4
+RUN git clone -b tudo --single-branch https://github.com/tonnuhongan999/BufferCapacity4.git ./BufferCapacity4
 
 ## Setup pyenv
 
