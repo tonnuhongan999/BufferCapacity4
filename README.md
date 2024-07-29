@@ -8,3 +8,17 @@ Run `docker run --name buffercapacity4 -it buffercapacity4-docker /bin/bash` to 
 - Container name is buffercapacity4
 
 Run `source $(pipenv --venv)/bin/activate` to activate pipenv
+
+Run `buildozer android debug`
+
+# After having apk file
+
+Run `docker cp <container_name>:/home/ubuntu/example.txt ~/Downloads/` to copy file from container to local machine
+
+Boot up a virtual device in Android Studio
+
+Run `adb devices` to see list of devices
+
+Run `adb -s <emulator_id> install path/to/myapp.apk` to install apk on device emulator
+
+Voila!
