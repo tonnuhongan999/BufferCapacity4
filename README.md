@@ -1,6 +1,6 @@
 # Use Dockerfile
 
-Run `docker build -t --no-cache buffercapacity4-docker .` to build image
+Run `docker build --no-cache -t buffercapacity4-docker .` to build image
 
 Run `docker run --name buffercapacity4 -it buffercapacity4-docker /bin/bash` to create new container shell
 
