@@ -1,3 +1,5 @@
+# Legacy file now. I've setup Dockerfile to boot up the whole ubuntu image with required dependencies
+
 services:
   ubuntu_service:
     image: ubuntu:22.04
