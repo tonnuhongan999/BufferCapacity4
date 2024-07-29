@@ -7,18 +7,16 @@ WORKDIR /root
 # Install sudo
 
 RUN apt update -y
-
-RUN apt install sudo
+RUN apt install -y sudo
 
 # Target Android on Ubuntu 22.04
 
 RUN sudo apt update -y
-
 RUN sudo apt install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
 
-RUN sudo apt install autopoint
+RUN sudo apt update -y
+RUN sudo apt install -y autopoint
 RUN pip3 install pipenv 
-RUN sudo apt install curl
 
 RUN echo 'export PATH="$PATH:~/.local/bin/"' >> ~/.bashrc
 
@@ -30,7 +28,7 @@ RUN git clone -b tudo --single-branch https://github.com/tonnuhongan999/BufferCa
 ## Setup pyenv
 
 RUN sudo apt update -y
-
+RUN sudo apt install -y curl
 RUN curl https://pyenv.run | bash
 
 RUN echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
@@ -43,7 +41,8 @@ RUN echo 'eval "$(pyenv init -)"' >> ~/.profile
 
 ## Setup locales for pipenv
 
-RUN sudo apt install locales
+RUN sudo apt update -y
+RUN sudo apt install -y locales
 RUN sudo locale-gen en_US.UTF-8
 RUN echo 'export LANG="en_US.UTF-8"' >> ~/.profile
 RUN echo 'export LC_ALL="en_US.UTF-8"' >> ~/.profile
@@ -60,7 +59,8 @@ WORKDIR /root/BufferCapacity4
 
 RUN git checkout tudo
 
-RUN sudo apt install libbz2-dev libreadline-dev libsqlite3-dev liblzma-dev
+RUN sudo apt update -y
+RUN sudo apt install -y libbz2-dev libreadline-dev libsqlite3-dev liblzma-dev
 RUN pyenv install 3.12
 RUN pyenv global 3.12
 
