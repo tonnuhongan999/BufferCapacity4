@@ -10,6 +10,8 @@ Run `docker run --name buffercapacity4 -it buffercapacity4-docker /bin/bash` to 
 
 Run `source $(pipenv --venv)/bin/activate` to activate pipenv
 
+Run `make` to install toolchains for gfortran that supports scipy
+
 Run `buildozer android debug`
 
 # After having apk file

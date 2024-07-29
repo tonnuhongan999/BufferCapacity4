@@ -59,11 +59,15 @@ SHELL ["/bin/bash", "-l", "-c"]
 WORKDIR /root/BufferCapacity4
 
 RUN git checkout tudo
+
+RUN sudo apt install libbz2-dev libreadline-dev libsqlite3-dev liblzma-dev
 RUN pyenv install 3.12
 RUN pyenv global 3.12
+
 RUN pipenv install
 RUN pipenv install -d
-RUN . $(pipenv --venv)/bin/activate
-RUN ["/bin/bash", "-c", "source $(pipenv --venv)/bin/activate && make"]
+
 RUN echo 'export ANDROID_HOME="$HOME/.android"' >> ~/.bashrc
 RUN echo 'export LEGACY_NDK="$ANDROID_HOME/android-ndk-legacy"' >> ~/.bashrc
+
+# RUN ["/bin/bash", "-c", "source $(pipenv --venv)/bin/activate && make"]
