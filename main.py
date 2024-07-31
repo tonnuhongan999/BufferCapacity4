@@ -71,6 +71,8 @@ class HomeScreen(Screen):
     def show_file_chooser(self):
         content = BoxLayout(orientation="vertical")  # Create vertical BoxLayout
         filechooser = FileChooserListView(rootpath='/storage/emulated/0/' if platform == 'android' else '/')
+        filechooser.filters = ['*.csv']  # Add filter to only show CSV files
+
         content.add_widget(filechooser)  # Add FileChooserListView to content
         btn = Button(text="Select", size_hint_y=None, height=40)  # Create Select button
         btn.bind(on_press=lambda x: self.load_file(filechooser.selection))  # Bind button press to load_file method
