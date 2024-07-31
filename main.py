@@ -90,7 +90,6 @@ class HomeScreen(Screen):
     # Process file data method
     def process_file_data(self, file_path):
         try:
-            
             with open(file_path, "r") as csvfile:
                 reader = pd.read_csv(io.StringIO(csvfile.read()))
                 new_parameters = reader.set_index("Parameter").to_dict()["Value"] 
