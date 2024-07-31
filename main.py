@@ -1,40 +1,47 @@
+# import necessary libraries
 import pandas as pd
-import io  
-from kivy.app import App  
-from kivy.uix.boxlayout import BoxLayout  
-from kivy.uix.label import Label  
-from kivy.uix.textinput import TextInput  
-from kivy.uix.button import Button
-from kivy.uix.scrollview import ScrollView 
-from kivy.uix.screenmanager import ScreenManager, Screen 
-from kivy.uix.popup import Popup  
-from kivy.lang import Builder  
-from kivy.uix.filechooser import FileChooserListView  
-from kivy.core.window import Window  
-from TitrationScreen import TitrationScreen 
-from GenBCScreen import GenBCScreen  
-from functools import partial 
-from kivy.graphics import Mesh  
-from BufferTable import BufferTableScreen  
-import os  
 import csv
+import io
+import os
+from functools import partial
 
+from kivy.app import App
+from kivy.core.window import Window
+from kivy.graphics import Mesh
+from kivy.lang import Builder
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
+from kivy.uix.filechooser import FileChooserListView
+from kivy.uix.label import Label
+from kivy.uix.popup import Popup
+from kivy.uix.screenmanager import Screen, ScreenManager
+from kivy.uix.scrollview import ScrollView
+from kivy.uix.textinput import TextInput
+
+from BufferTable import BufferTableScreen
+from GenBCScreen import GenBCScreen
+from TitrationScreen import TitrationScreen
+
+# Android specific imports
 from kivy.utils import platform
-if platform =='android':
-    from androidstorage4kivy import SharedStorage  # Import SharedStorage
+if platform == 'android':
+    from androidstorage4kivy import SharedStorage
     from android.permissions import request_permissions, Permission
 
 # Load the kv file for the GUI layout
-Builder.load_file('main.kv')
+Builder.load_file("main.kv")
 
 # Define HomeScreen class inheriting from Screen
 class HomeScreen(Screen):
     def __init__(self, **kwargs):
         super(HomeScreen, self).__init__(**kwargs)
         self.parameters = {}  # Initialize parameters dictionary
-        self.last_dir = ''  # Initialize last directory string
+        self.last_dir = ""  # Initialize last directory string
         self.start_new = False  # Initialize start_new flag
         self.conTitr = 0  # Initialize conTitr value
+
+        if platform == 'android':
+            request_permissions([Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE])
 
     # Receive data method
     def receive_data(self, start_new):
@@ -45,14 +52,14 @@ class HomeScreen(Screen):
     # Clear data method
     def clear_data(self):
         self.clear_text_inputs(self)  # Clear all input boxes
-        self.last_dir = ''  # Reset last directory
+        self.last_dir = ""  # Reset last directory
         self.parameters = {}  # Reset parameters dictionary
 
     # Recursive method to clear text inputs
     def clear_text_inputs(self, widget):
         for child in widget.children:
             if isinstance(child, TextInput):
-                child.text = ''  # Clear text if child is TextInput
+                child.text = ""  # Clear text if child is TextInput
             else:
                 self.clear_text_inputs(child)  # Recursive call for non-TextInput children
 
@@ -62,10 +69,10 @@ class HomeScreen(Screen):
 
     # Show file chooser method
     def show_file_chooser(self):
-        content = BoxLayout(orientation='vertical')  # Create vertical BoxLayout
-        filechooser = FileChooserListView()  # Create FileChooserListView
+        content = BoxLayout(orientation="vertical")  # Create vertical BoxLayout
+        filechooser = FileChooserListView(rootpath='/storage/emulated/0/' if platform == 'android' else '/')
         content.add_widget(filechooser)  # Add FileChooserListView to content
-        btn = Button(text='Select', size_hint_y=None, height=40)  # Create Select button
+        btn = Button(text="Select", size_hint_y=None, height=40)  # Create Select button
         btn.bind(on_press=lambda x: self.load_file(filechooser.selection))  # Bind button press to load_file method
         content.add_widget(btn)  # Add button to content
 
@@ -83,88 +90,91 @@ class HomeScreen(Screen):
     # Process file data method
     def process_file_data(self, file_path):
         try:
-            with SharedStorage().open(file_path, 'r') as csvfile:  # Open file with SharedStorage
-                reader = csv.reader(io.StringIO(csvfile.read()))  # Read CSV file
-                new_parameters = reader.set_index("Parameter").to_dict()["Value"]  # Convert to dictionary
+            
+            with open(file_path, "r") as csvfile:
+                reader = pd.read_csv(io.StringIO(csvfile.read()))
+                new_parameters = reader.set_index("Parameter").to_dict()["Value"] 
 
-                self.parameters = new_parameters  # Update parameters dictionary
-                self.update_inputs(new_parameters)  # Update inputs with new parameters
+            self.parameters = new_parameters  # Update parameters dictionary
+            self.update_inputs(new_parameters)  # Update inputs with new parameters
 
         except Exception as e:
-            self.show_error_popup(f'An error occurred while processing the file data: {str(e)}')  # Show error popup
+            self.show_popup("Error", f"An error occurred while processing the file data: {str(e)}")  # Show error popup
 
     # Update inputs method
     def update_inputs(self, parameters):
         # Update the text inputs with the file's values
-        self.ids.ingredient.text = parameters.get('ingredient', '')
-        self.ids.concentration_titration.text = str('')
-        self.ids.acid_concentration.text = str(parameters.get('HCl', ''))
-        self.ids.base_concentration.text = str(parameters.get('NaOH', ''))
-        self.ids.vol_titrated.text = str(parameters.get('Init_Vol', ''))
-        self.ids.nacl.text = str(parameters.get('NaClpercent', ''))
+        self.ids.ingredient.text = parameters.get("ingredient", "")
+        self.ids.concentration_titration.text = str("")
+        self.ids.acid_concentration.text = str(parameters.get("HCl", ""))
+        self.ids.base_concentration.text = str(parameters.get("NaOH", ""))
+        self.ids.vol_titrated.text = str(parameters.get("Init_Vol", ""))
+        self.ids.nacl.text = str(parameters.get("NaClpercent", ""))
 
         # Update the inputs if user changes the values
-        self.ids.ingredient.bind(text=partial(self.update_parameters, 'ingredient'))
+        self.ids.ingredient.bind(text=partial(self.update_parameters, "ingredient"))
         self.ids.concentration_titration.bind(text=self.update_concentration_titration)
-        self.ids.acid_concentration.bind(text=partial(self.update_parameters, 'HCl'))
-        self.ids.base_concentration.bind(text=partial(self.update_parameters, 'NaOH'))
-        self.ids.vol_titrated.bind(text=partial(self.update_parameters, 'Init_Vol'))
-        self.ids.nacl.bind(text=partial(self.update_parameters, 'NaClpercent'))
+        self.ids.acid_concentration.bind(text=partial(self.update_parameters, "HCl"))
+        self.ids.base_concentration.bind(text=partial(self.update_parameters, "NaOH"))
+        self.ids.vol_titrated.bind(text=partial(self.update_parameters, "Init_Vol"))
+        self.ids.nacl.bind(text=partial(self.update_parameters, "NaClpercent"))
 
     # Update parameters method
     def update_parameters(self, key, instance, value):
-        self.parameters[key] = value  
+        self.parameters[key] = value
 
     # Update concentration titration method
     def update_concentration_titration(self, instance, value):
-        self.conTitr = value 
+        self.conTitr = value
 
     # Go to titration graph method
     def go_to_titration_graph(self):
         self.collected_data = {
-            'ingredient': self.ids.ingredient.text,
-            'nacl': self.parameters.get('NaClpercent', ''),
-            'init_vol': self.parameters.get('Init_Vol', ''),
-            'molHCl': self.parameters.get('HCl', ''),
-            'molNaOH': self.parameters.get('NaOH', ''),
-            'mingap': self.parameters.get('MinGap', ''),
-            'increment': self.parameters.get('Increment', ''),
-            'removeVal': self.parameters.get('pH', ''),
-            'order': self.parameters.get('Order', ''),
-            'minConc': self.parameters.get('MinConc', ''),
-            'npKs': self.parameters.get('NpKs', ''),
-            'uB': self.parameters.get('UB', ''),
-            'lB': self.parameters.get('LB', ''),
-            'pK_tol': self.parameters.get('pK_tol', ''),
-            'trim_beg': self.parameters.get('Trim_beg', ''),
-            'trim_end': self.parameters.get('Trim_end', '')
+            "ingredient": self.ids.ingredient.text,
+            "nacl": self.parameters.get("NaClpercent", ""),
+            "init_vol": self.parameters.get("Init_Vol", ""),
+            "molHCl": self.parameters.get("HCl", ""),
+            "molNaOH": self.parameters.get("NaOH", ""),
+            "mingap": self.parameters.get("MinGap", ""),
+            "increment": self.parameters.get("Increment", ""),
+            "removeVal": self.parameters.get("pH", ""),
+            "order": self.parameters.get("Order", ""),
+            "minConc": self.parameters.get("MinConc", ""),
+            "npKs": self.parameters.get("NpKs", ""),
+            "uB": self.parameters.get("UB", ""),
+            "lB": self.parameters.get("LB", ""),
+            "pK_tol": self.parameters.get("pK_tol", ""),
+            "trim_beg": self.parameters.get("Trim_beg", ""),
+            "trim_end": self.parameters.get("Trim_end", ""),
         }  # Collect data
-        self.manager.get_screen('titration_screen').receive_data(self.start_new, self.collected_data, self.last_dir, self.conTitr)  # Send data to TitrationScreen
-        self.manager.current = 'titration_screen'  # Switch to TitrationScreen
+        self.manager.get_screen("titration_screen").receive_data(self.start_new, self.collected_data, self.last_dir, self.conTitr)  # Send data to TitrationScreen
+        self.manager.current = "titration_screen"  # Switch to TitrationScreen
 
-    # Show error popup method
-    def show_error_popup(self, message):
+    # Show popup method
+    def show_popup(self, title, message):
         popup_content = BoxLayout(orientation='vertical')
         label = Label(text=message)
         close_button = Button(text='Close', size_hint_y=None, height=40)
         popup_content.add_widget(label)
         popup_content.add_widget(close_button)
 
-        popup = Popup(title='Error', content=popup_content, size_hint=(0.9, 0.9))
+        popup = Popup(title=title, content=popup_content, size_hint=(0.9, 0.9))
         close_button.bind(on_press=popup.dismiss)
         popup.open()
+
 
 # Define BufferApp class inheriting from App
 class BufferApp(App):
     def build(self):
         sm = ScreenManager()  # Create ScreenManager
-        home_screen = HomeScreen(name='home')  # Create HomeScreen
+        home_screen = HomeScreen(name="home")  # Create HomeScreen
         sm.add_widget(home_screen)  # Add HomeScreen to ScreenManager
-        sm.add_widget(TitrationScreen(name='titration_screen'))  # Add TitrationScreen to ScreenManager
-        sm.add_widget(GenBCScreen(name='gen_bc_screen'))  # Add GenBCScreen to ScreenManager
-        sm.add_widget(BufferTableScreen(name='buffer_table_screen'))  # Add BufferTableScreen to ScreenManager
+        sm.add_widget(TitrationScreen(name="titration_screen"))  # Add TitrationScreen to ScreenManager
+        sm.add_widget(GenBCScreen(name="gen_bc_screen"))  # Add GenBCScreen to ScreenManager
+        sm.add_widget(BufferTableScreen(name="buffer_table_screen"))  # Add BufferTableScreen to ScreenManager
         return sm  # Return ScreenManager
 
+
 # Run the app if this script is executed
-if __name__ == '__main__':
+if __name__ == "__main__":
     BufferApp().run()
