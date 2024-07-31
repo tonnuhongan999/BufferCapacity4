@@ -1,10 +1,10 @@
 [app]
 
 # (str) Title of your application
-title = screen1
+title = app1
 
 # (str) Package name
-package.name = homescreen
+package.name = buffercapacity4
 
 # (str) Package domain (needed for android/ios packaging)
 package.domain = org.test
@@ -37,9 +37,9 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = kivy,kivy_garden.graph,numpy,pandas,scipy,chardet
+requirements = kivy,kivy_garden.graph,numpy,pandas,scipy,chardet,androidstorage4kivy
 
-android.permissions = READ_EXTERNAL_STORAGE
+android.permissions = READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -103,7 +103,7 @@ fullscreen = 0
 #android.features = android.hardware.usb.host
 
 # (int) Target Android API, should be as high as possible.
-#android.api = 31
+#android.api = 34
 
 # (int) Minimum API your APK / AAB will support.
 #android.minapi = 21
