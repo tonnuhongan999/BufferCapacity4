@@ -1,10 +1,10 @@
 [app]
 
 # (str) Title of your application
-title = app2
+title = app3
 
 # (str) Package name
-package.name =  buffercapacityapp4
+package.name =  buffercapacity4
 
 # (str) Package domain (needed for android/ios packaging)
 package.domain = org.test
