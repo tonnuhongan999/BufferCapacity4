@@ -4,6 +4,7 @@ from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.uix.filechooser import FileChooserListView
 from kivy.uix.scrollview import ScrollView
+from kivy_garden.graph import Graph, MeshLinePlot, ScatterPlot
 from kivy.uix.popup import Popup
 from kivy.metrics import dp
 from kivy.core.window import Window
@@ -12,7 +13,8 @@ import chardet
 import logging
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
-
+from matplotlib import pyplot as plt 
+from kivy.garden.matplotlib import FigureCanvasKivyAgg 
 # Set the logging level for chardet to WARNING to suppress debug messages
 logging.getLogger('chardet').setLevel(logging.WARNING)
 
@@ -137,23 +139,54 @@ class TitrationScreen(Screen):
 
         self.ids.chart_layout.clear_widgets()  # Clear existing widgets from chart layout
 
-        fig, ax = plt.subplots()  # Create a figure and axis
+        # Define the label options without 'font_size'
+        label_options = {
+            'color': [0, 0, 0, 1],
+            'bold': False,
+            'italic': False
+        }
+
+        xmin = 0
+        xmax = max([point[0] for point in self.acid_data + self.base_data])
+        x_ticks_major = (xmax - xmin) / 10 if xmax - xmin > 10 else 1
+
+        # Set 'font_size' directly in the Graph parameters
+        self.graph = Graph(
+            xlabel='Volume Added (mL)', ylabel='pH',
+            x_ticks_minor=5, x_ticks_major=x_ticks_major, y_ticks_minor=1, y_ticks_major=1,
+            y_grid_label=True, x_grid_label=True,
+            padding=5, xlog=False, ylog=False,
+            x_grid=True, y_grid=True,
+            border_color=[0, 0, 0, 1], draw_border=True,
+            xmin=0, xmax=max([point[0] for point in self.acid_data + self.base_data]),
+            ymin=0, ymax=14,
+            label_options=label_options,
+            font_size=dp(20)
+        )
+
+        self.graph.size_hint = (1, 1)
+        self.graph.pos_hint = {'center_x': 0.5, 'center_y': 0.5}
 
         if self.acid_data:
-            acid_x, acid_y = zip(*self.acid_data)  # Unzip acid data points
-            ax.plot(acid_x, acid_y, color=[245/255, 39/255, 103/255, 0.8], label='Acid')  # Plot acid data
+            acid_line = MeshLinePlot(color=[245/255, 39/255, 103/255, 0.8])
+            acid_line.points = self.acid_data  # Add acid data points to line plot
+            self.graph.add_plot(acid_line)  # Add acid line plot to graph
+
+            acid_scatter = ScatterPlot(color=[245/255, 39/255, 103/255, 0.8], point_size=5)
+            acid_scatter.points = self.acid_data  # Add acid data points to scatter plot
+            self.graph.add_plot(acid_scatter)  # Add acid scatter plot to graph
 
         if self.base_data:
-            base_x, base_y = zip(*self.base_data)  # Unzip base data points
-            ax.plot(base_x, base_y, color=[39/255, 65/255, 245/255, 0.8], label='Base')  # Plot base data
+            base_line = MeshLinePlot(color=[39/255, 65/255, 245/255, 0.8])
+            base_line.points = self.base_data  # Add base data points to line plot
+            self.graph.add_plot(base_line)  # Add base line plot to graph
 
-        ax.set_xlabel('Volume Added (mL)')  # Set x-axis label
-        ax.set_ylabel('pH')  # Set y-axis label
-        ax.set_title('Titration Curve')  # Set title
-        ax.legend()  # Show legend
-        ax.grid(True)  # Show grid
+            base_scatter = ScatterPlot(color=[39/255, 65/255, 245/255, 0.8], point_size=5)
+            base_scatter.points = self.base_data  # Add base data points to scatter plot
+            self.graph.add_plot(base_scatter)  # Add base scatter plot to graph
 
-        self.ids.chart_layout.add_widget(FigureCanvasKivyAgg(fig))  # Add plot to chart layout
+        # Add the new graph
+        self.ids.chart_layout.add_widget(self.graph)  # Add graph to chart layout
 
     # Clear graph method
     def clear_graph(self):

@@ -71,8 +71,6 @@ class HomeScreen(Screen):
         content = BoxLayout(orientation="vertical")  # Create vertical BoxLayout
         filechooser = FileChooserListView(rootpath='/storage/emulated/0/' if platform == 'android' else '/')
         filechooser.filters = ['*.csv']  # Add filter to only show CSV files
-        filechooser.show_hidden = True  # Optionally show hidden files
-        filechooser.dirselect = False  # Ensure it's set to select files, not directories
 
         content.add_widget(filechooser)  # Add FileChooserListView to content
         btn = Button(text="Select", size_hint_y=None, height=40)  # Create Select button
