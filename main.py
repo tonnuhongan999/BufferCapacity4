@@ -25,7 +25,6 @@ from TitrationScreen import TitrationScreen
 # Android specific imports
 from kivy.utils import platform
 if platform == 'android':
-    from androidstorage4kivy import SharedStorage
     from android.permissions import request_permissions, Permission
 
 # Load the kv file for the GUI layout
