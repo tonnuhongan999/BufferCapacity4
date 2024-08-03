@@ -16,7 +16,7 @@ Run `buildozer android debug`
 
 # After having apk file
 
-Run `docker cp buffercapacityapp4:/root/BufferCapacity4/bin/buffercapacitymobile4-0.1-arm64-v8a_armeabi-v7a-debug.apk /Users/tonnu.hongan999/Documents/apk6` to copy file from container to local machine
+Run `docker cp buffercapacityapp4:/root/BufferCapacity4/bin/buffercapacitymobile4-0.1-arm64-v8a_armeabi-v7a-debug.apk /Users/tonnu.hongan999/Documents/apk7` to copy file from container to local machine
 
 Boot up a virtual device in Android Studio
 

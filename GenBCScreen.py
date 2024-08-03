@@ -20,6 +20,10 @@ import csv
 from kivy.uix.filechooser import FileChooserListView
 from kivy.uix.popup import Popup
 
+from kivy.utils import platform
+if platform == 'android':
+    from android.permissions import request_permissions, Permission
+
 
 #global Buffer Capacity array, BC
 BC = None
@@ -54,6 +58,9 @@ class GenBCScreen(Screen):
         self.adjC_formatted = None
         self.sse_formatted = None
         self.tbeta_formatted = None
+
+        if platform == 'android':
+            request_permissions([Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE])
 
     # Define a method to receive data and process it
     def receive_data(self, collected_data, acid_data, base_data, conTitr):
@@ -213,7 +220,7 @@ class GenBCScreen(Screen):
 
         # Ensure checkbox layout is also added here if necessary
         self.checkbox_layout = BoxLayout(orientation='horizontal', size_hint_y=None, height=40, spacing=10)
-        self.checkbox_label = Label(text="Use AdjC", font_size=20, bold=True, color=(0.1, 0.1, 0.1, 1), valign='center', halign='right', size_hint_y=None, height=40)
+        self.checkbox_label = Label(text="Use AdjC", font_size='15sp', bold=True, color=(0.1, 0.1, 0.1, 1), valign='center', halign='right', size_hint_y=None, height=40)
         self.checkbox = CheckBox(size_hint_x=0.1)
         self.checkbox.bind(active=self.on_checkbox_active)
         self.checkbox_layout.add_widget(self.checkbox_label)
@@ -223,10 +230,10 @@ class GenBCScreen(Screen):
         self.label_layout.add_widget(self.checkbox_layout)
 
         # Create the labels
-        self.model_sse_label = Label(text=f"Model SSE: {self.sse_formatted if self.sse_formatted is not None else ''}", font_size=20, bold=True, color=(0.1, 0.1, 0.1, 1), size_hint_y=None, height=40)
-        self.estimated_ph_label = Label(text=f"Estimated pH: {self.pH if self.pH is not None else ''}", font_size=20, bold=True, color=(0.1, 0.1, 0.1, 1), size_hint_y=None, height=40)
-        self.adjc_value_label = Label(text=f"AdjC Value (M): {self.adjC_formatted if self.adjC_formatted is not None else ''}", font_size=20, bold=True, color=(0.1, 0.1, 0.1, 1), size_hint_y=None, height=40)
-        self.tbeta_label = Label(text=f"tBeta: {self.tbeta_formatted if self.tbeta_formatted is not None else ''}", font_size=20, bold=True, color=(0.1, 0.1, 0.1, 1), size_hint_y=None, height=40)
+        self.model_sse_label = Label(text=f"Model SSE: {self.sse_formatted if self.sse_formatted is not None else ''}", font_size='15sp', bold=True, color=(0.1, 0.1, 0.1, 1), size_hint_y=None, height=40)
+        self.estimated_ph_label = Label(text=f"Estimated pH: {self.pH if self.pH is not None else ''}", font_size='15sp', bold=True, color=(0.1, 0.1, 0.1, 1), size_hint_y=None, height=40)
+        self.adjc_value_label = Label(text=f"AdjC Value (M): {self.adjC_formatted if self.adjC_formatted is not None else ''}", font_size='15sp', bold=True, color=(0.1, 0.1, 0.1, 1), size_hint_y=None, height=40)
+        self.tbeta_label = Label(text=f"tBeta: {self.tbeta_formatted if self.tbeta_formatted is not None else ''}", font_size='15sp', bold=True, color=(0.1, 0.1, 0.1, 1), size_hint_y=None, height=40)
 
         # Add the label to the new label layout
         self.label_layout.add_widget(self.model_sse_label)
@@ -321,7 +328,7 @@ class GenBCScreen(Screen):
     # Define a method to show a save dialog
     def show_save_dialog(self, on_selection):
             content = BoxLayout(orientation='vertical')
-            filechooser = FileChooserListView(path='/')
+            filechooser = FileChooserListView(rootpath='/storage/emulated/0/' if platform == 'android' else '/')
             filename_input = TextInput(hint_text="Enter filename",size_hint_y=None, height=45)
             content.add_widget(filechooser)
             content.add_widget(filename_input)
@@ -371,8 +378,8 @@ class GenBCScreen(Screen):
     def create_labeled_input_box(self, label_text, input_text, input_callback):
         box = BoxLayout(orientation='horizontal', size_hint_y=None, height=40, spacing=10)
 
-        label = Label(text=label_text, font_size=20, bold=True, color=(0.1, 0.1, 0.1, 1), size_hint_x=0.3)
-        text_input = TextInput(text=str(input_text), multiline=False, input_filter='float', font_size=20, size_hint_x=0.5)
+        label = Label(text=label_text, font_size='15sp', bold=True, color=(0.1, 0.1, 0.1, 1), size_hint_x=0.3)
+        text_input = TextInput(text=str(input_text), multiline=False, input_filter='float', font_size='15sp', size_hint_x=0.5)
         text_input.bind(text=input_callback)
 
         box.add_widget(label)
