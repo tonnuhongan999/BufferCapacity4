@@ -39,7 +39,7 @@ version = 0.1
 # comma separated e.g. requirements = sqlite3,kivy
 requirements = kivy,kivy_garden.graph,numpy,pandas,scipy,chardet,androidstorage4kivy
 
-android.permissions = READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE
+android.permissions = READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE, MANAGE_EXTERNAL_STORAGE
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
