@@ -40,7 +40,7 @@ class HomeScreen(Screen):
         self.conTitr = 0  # Initialize conTitr value
 
         if platform == 'android':
-            request_permissions([Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE, Permission.MANAGE_EXTERNAL_STORAGE])
+            request_permissions([Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE])
 
     # Receive data method
     def receive_data(self, start_new):
