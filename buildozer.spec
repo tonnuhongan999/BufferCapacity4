@@ -1,7 +1,7 @@
 [app]
 
 # (str) Title of your application
-title = app8
+title = buffercapacity4
 
 # (str) Package name
 package.name =  buffercapacitymobile4

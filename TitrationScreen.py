@@ -13,6 +13,7 @@ import chardet
 import logging
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
+from matplotlib import pyplot as plt 
 # Set the logging level for chardet to WARNING to suppress debug messages
 logging.getLogger('chardet').setLevel(logging.WARNING)
 

@@ -45,14 +45,6 @@ class HomeScreen(Screen):
     # Receive data method
     def receive_data(self, start_new):
         self.start_new = start_new  # Update start_new flag
-        if self.start_new:
-            self.clear_data()  # Clear data if starting new
-
-    # Clear data method
-    def clear_data(self):
-        self.clear_text_inputs(self)  # Clear all input boxes
-        self.last_dir = ""  # Reset last directory
-        self.parameters = {}  # Reset parameters dictionary
 
     # Recursive method to clear text inputs
     def clear_text_inputs(self, widget):
