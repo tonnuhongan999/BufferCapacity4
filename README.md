@@ -2,7 +2,7 @@
 
 Run `docker build --no-cache -t buffercapacitymobile4-docker .` to build image
 
-Run `docker run --name buffercapacitymobile4 -it buffercapacitymobile4-docker /bin/bash` to create new container shell
+Run `docker run --name buffercapacity4 -it buffercapacityapp4-docker /bin/bash` to create new container shell
 
 - Run `docker start buffercapacitymobile4` to start existing container
 - Run `docker exec -it <container_name> /bin/bash` to run existing container shell
@@ -16,7 +16,7 @@ Run `buildozer android debug`
 
 # After having apk file
 
-Run `docker cp buffercapacityapp4:/root/BufferCapacity4/bin/buffercapacitymobile4-0.1-arm64-v8a_armeabi-v7a-debug.apk /Users/tonnu.hongan999/Documents/apk9` to copy file from container to local machine
+Run `docker cp buffercapacity4:/root/BufferCapacity4/bin/buffercapacityapp4-0.1-arm64-v8a_armeabi-v7a-debug.apk /Users/tonnu.hongan999/Documents/apk10` to copy file from container to local machine
 
 Boot up a virtual device in Android Studio
 
