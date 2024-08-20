@@ -29,7 +29,7 @@ class BufferTableScreen(Screen):
 
         headers = ['Consc (M)', 'pK', 'a/b', 'Beta']
         for header in headers:
-            label = Label(text=header, size_hint_y=None, height=40, font_size=30, color=(0, 0, 0, 1), bold=True)
+            label = Label(text=header, size_hint_y=None, height=40, font_size='17sp', color=(0, 0, 0, 1), bold=True)
             table_layout.add_widget(label)
 
         # Populate the table with data from buftable
@@ -38,7 +38,7 @@ class BufferTableScreen(Screen):
                 # If the cell is in the 1st, 2nd, or 4th column and is a float, round it
                 if i in [0, 1, 3] and isinstance(cell, float):
                     cell = round(cell, 4)
-                label = Label(text=str(cell), size_hint_y=None, height=40, font_size=25, color=(0, 0, 0, 1))
+                label = Label(text=str(cell), size_hint_y=None, height=40, font_size='15sp', color=(0, 0, 0, 1))
                 table_layout.add_widget(label)
 
         # Calculate the total height of the GridLayout
