@@ -2,6 +2,7 @@ import os
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.label import Label
+from kivy.uix.widget import Widget
 from kivy.uix.button import Button
 from kivy_garden.graph import Graph, MeshLinePlot, ScatterPlot, LinePlot
 from kivy.metrics import dp
@@ -19,6 +20,11 @@ from kivy.uix.checkbox import CheckBox
 import csv
 from kivy.uix.filechooser import FileChooserListView
 from kivy.uix.popup import Popup
+from kivy.uix.scrollview import ScrollView
+
+from kivy.utils import platform
+if platform == 'android':
+    from android.permissions import request_permissions, Permission
 
 
 #global Buffer Capacity array, BC
@@ -54,6 +60,9 @@ class GenBCScreen(Screen):
         self.adjC_formatted = None
         self.sse_formatted = None
         self.tbeta_formatted = None
+
+        if platform == 'android':
+            request_permissions([Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE])
 
     # Define a method to receive data and process it
     def receive_data(self, collected_data, acid_data, base_data, conTitr):
@@ -155,7 +164,8 @@ class GenBCScreen(Screen):
             xmin=0, xmax=14, ymin=0, ymax=(max(maxY, maxWCY) + 0.005), background_color=[1, 1, 1, 1], xlog=False, ylog=False,
             label_options=label_options, font_size=dp(20)
         )
-        self.graph.size_hint = (1, 1)
+        self.graph.size_hint = (1, None)
+        self.graph.height = '400dp'
 
         if np.any(oriBC):
             oriBC_line = MeshLinePlot(color=[1, 1, 1, 1])
@@ -197,49 +207,42 @@ class GenBCScreen(Screen):
             newWC_line.points = newWC
             self.graph.add_plot(newWC_line)
 
-
         self.clear_widgets()
-        self.main_layout = BoxLayout(orientation='vertical', padding=[20, 0, 20, 20], spacing=10, height=Window.height)
+        self.main_layout = ScrollView(size_hint=(1, 1))  # Create a ScrollView
         self.add_widget(self.main_layout)
 
-        self.input_layout = BoxLayout(orientation='vertical', size_hint_y=None, height=300, pos_hint={'top': 0.9})
+        self.inner_layout = BoxLayout(orientation='vertical', size_hint_y=None)  # Create an inner BoxLayout
+        self.inner_layout.bind(minimum_height=self.inner_layout.setter('height'))
+
+        self.input_layout = BoxLayout(orientation='vertical', size_hint_y=None, height=300)
         if self.layout.parent:
             self.layout.parent.remove_widget(self.layout)
         self.input_layout.add_widget(self.layout)
-        self.main_layout.add_widget(self.input_layout)
+        self.inner_layout.add_widget(self.input_layout)
 
-        # Create a new vertical BoxLayout
-        self.label_layout = BoxLayout(orientation='vertical', size_hint_y=None, height=200, pos_hint={'center_x': 0.2, 'top': 0.8}, opacity=0)
-
-        # Ensure checkbox layout is also added here if necessary
-        self.checkbox_layout = BoxLayout(orientation='horizontal', size_hint_y=None, height=40, spacing=10)
-        self.checkbox_label = Label(text="Use AdjC", font_size=20, bold=True, color=(0.1, 0.1, 0.1, 1), valign='center', halign='right', size_hint_y=None, height=40)
-        self.checkbox = CheckBox(size_hint_x=0.1)
+        self.label_layout = BoxLayout(orientation='vertical', size_hint_y=None, height=200, opacity=0, pos_hint={'center_x': 0.2})
+        self.checkbox_layout = BoxLayout(orientation='horizontal', opacity=0, size_hint_y=None, height=40, spacing=10)
+        self.checkbox_label = Label(text="Use AdjC", font_size='15sp', bold=True, color=(0.1, 0.1, 0.1, 1), valign='center', halign='center', size_hint_x=None)
+        self.checkbox = CheckBox(size_hint_x=None)
         self.checkbox.bind(active=self.on_checkbox_active)
-        self.checkbox_layout.add_widget(self.checkbox_label)
         self.checkbox_layout.add_widget(self.checkbox)
+        self.checkbox_layout.add_widget(self.checkbox_label)
 
-        # Add the checkbox layout to the new label layout
-        self.label_layout.add_widget(self.checkbox_layout)
+        self.inner_layout.add_widget(self.checkbox_layout)
 
         # Create the labels
-        self.model_sse_label = Label(text=f"Model SSE: {self.sse_formatted if self.sse_formatted is not None else ''}", font_size=20, bold=True, color=(0.1, 0.1, 0.1, 1), size_hint_y=None, height=40)
-        self.estimated_ph_label = Label(text=f"Estimated pH: {self.pH if self.pH is not None else ''}", font_size=20, bold=True, color=(0.1, 0.1, 0.1, 1), size_hint_y=None, height=40)
-        self.adjc_value_label = Label(text=f"AdjC Value (M): {self.adjC_formatted if self.adjC_formatted is not None else ''}", font_size=20, bold=True, color=(0.1, 0.1, 0.1, 1), size_hint_y=None, height=40)
-        self.tbeta_label = Label(text=f"tBeta: {self.tbeta_formatted if self.tbeta_formatted is not None else ''}", font_size=20, bold=True, color=(0.1, 0.1, 0.1, 1), size_hint_y=None, height=40)
+        self.model_sse_label = Label(text=f"Model SSE: {self.sse_formatted if self.sse_formatted is not None else ''}", font_size='15sp', bold=True, color=(0.1, 0.1, 0.1, 1), size_hint_y=None, height=40)
+        self.estimated_ph_label = Label(text=f"Estimated pH: {self.pH if self.pH is not None else ''}", font_size='15sp', bold=True, color=(0.1, 0.1, 0.1, 1), size_hint_y=None, height=40)
+        self.adjc_value_label = Label(text=f"AdjC Value (M): {self.adjC_formatted if self.adjC_formatted is not None else ''}", font_size='15sp', bold=True, color=(0.1, 0.1, 0.1, 1), size_hint_y=None, height=40)
+        self.tbeta_label = Label(text=f"tBeta: {self.tbeta_formatted if self.tbeta_formatted is not None else ''}", font_size='15sp', bold=True, color=(0.1, 0.1, 0.1, 1), size_hint_y=None, height=40)
 
-        # Add the label to the new label layout
         self.label_layout.add_widget(self.model_sse_label)
         self.label_layout.add_widget(self.estimated_ph_label)
         self.label_layout.add_widget(self.adjc_value_label)
         self.label_layout.add_widget(self.tbeta_label)
 
-        # Add the new label layout to the main layout
-        self.main_layout.add_widget(self.label_layout)
-
-        self.graph_layout = BoxLayout(height=dp(400))
-        self.graph_layout.add_widget(self.graph)
-        self.main_layout.add_widget(self.graph_layout)
+        self.inner_layout.add_widget(self.label_layout)
+        self.inner_layout.add_widget(self.graph)
 
         self.download_button = Button(
             text="Download Results File",
@@ -252,10 +255,12 @@ class GenBCScreen(Screen):
             opacity=0
         )
         self.download_button.bind(on_press=self.download_results)
-        self.main_layout.add_widget(self.download_button)
+        self.inner_layout.add_widget(self.download_button)
+
+        self.inner_layout.add_widget(Widget(size_hint=(1, None), height='10dp'))
 
         self.restart_button = Button(
-            text="Start Another Ingerdient",
+            text="Start Another Ingredient",
             size_hint=(1, None),
             height=40,
             bold=True,
@@ -265,7 +270,10 @@ class GenBCScreen(Screen):
         )
 
         self.restart_button.bind(on_press=self.on_restart_button_click)
-        self.main_layout.add_widget(self.restart_button)
+        self.inner_layout.add_widget(self.restart_button)
+
+        self.main_layout.add_widget(self.inner_layout)
+
 
     # Define a method to restart the process
     def on_restart_button_click(self, instance):
@@ -321,11 +329,11 @@ class GenBCScreen(Screen):
     # Define a method to show a save dialog
     def show_save_dialog(self, on_selection):
             content = BoxLayout(orientation='vertical')
-            filechooser = FileChooserListView(path='/')
-            filename_input = TextInput(hint_text="Enter filename",size_hint_y=None, height=45)
+            filechooser = FileChooserListView(rootpath='/storage/emulated/0/' if platform == 'android' else '/')
+            filename_input = TextInput(hint_text="Enter filename",size_hint_y=None, height=60)
             content.add_widget(filechooser)
             content.add_widget(filename_input)
-            save_button = Button(text='Save', size_hint_y=None, height=40)
+            save_button = Button(text='Save', size_hint_y=None, height=60)
             save_button.bind(on_press=lambda x: on_selection(filechooser.path, filename_input.text))
             content.add_widget(save_button)
             self.popup = Popup(title="Save File", content=content, size_hint=(0.9, 0.9))
@@ -366,13 +374,14 @@ class GenBCScreen(Screen):
         self.view_buffer_table_button.opacity = 1
         self.download_button.opacity = 1
         self.label_layout.opacity = 1
+        self.checkbox_layout.opacity = 1
     
     # Define a method to create a labeled input box
     def create_labeled_input_box(self, label_text, input_text, input_callback):
         box = BoxLayout(orientation='horizontal', size_hint_y=None, height=40, spacing=10)
 
-        label = Label(text=label_text, font_size=20, bold=True, color=(0.1, 0.1, 0.1, 1), size_hint_x=0.3)
-        text_input = TextInput(text=str(input_text), multiline=False, input_filter='float', font_size=20, size_hint_x=0.5)
+        label = Label(text=label_text, font_size='15sp', bold=True, color=(0.1, 0.1, 0.1, 1), size_hint_x=0.3)
+        text_input = TextInput(text=str(input_text), multiline=False, input_filter='float', font_size='15sp', size_hint_x=0.5)
         text_input.bind(text=input_callback)
 
         box.add_widget(label)
