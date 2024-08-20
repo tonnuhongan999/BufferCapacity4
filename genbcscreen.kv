@@ -30,7 +30,7 @@
 
                 Label:
                     text: 'Buffer Capacity Screen'
-                    font_size: 50
+                    font_size: '40sp'
                     color: 0.1, 0.1, 0.1, 1
                     size_hint_y: None
                     height: self.texture_size[1]
@@ -46,7 +46,7 @@
 
                     Label:
                         text: 'Trim Begin:'
-                        font_size: 20
+                        font_size: '15sp'
                         bold: True
                         color: 0.1, 0.1, 0.1, 1
                         size_hint_x: 0.3
@@ -56,7 +56,7 @@
                         text: root.collected_data.get("trim_beg", "") if root.collected_data is not None else ""
                         multiline: False
                         input_filter: 'float'
-                        font_size: 20
+                        font_size: '15sp'
                         size_hint_x: 0.5
                         on_text: root.on_trim_beg_input(self, self.text)
 
@@ -68,7 +68,7 @@
 
                     Label:
                         text: 'Trim End:'
-                        font_size: 20
+                        font_size: '15sp'
                         bold: True
                         color: 0.1, 0.1, 0.1, 1
                         size_hint_x: 0.3
@@ -78,7 +78,7 @@
                         text: root.collected_data.get("trim_end", "") if root.collected_data is not None else ""
                         multiline: False
                         input_filter: 'float'
-                        font_size: 20
+                        font_size: '15sp'
                         size_hint_x: 0.5
                         on_text: root.on_trim_end_input(self, self.text)
 
@@ -90,7 +90,7 @@
 
                     Label:
                         text: 'Electrode Shift +/- 0.5:'
-                        font_size: 20
+                        font_size: '15sp'
                         bold: True
                         color: 0.1, 0.1, 0.1, 1
                         size_hint_x: 0.3
@@ -100,7 +100,7 @@
                         text: "0"
                         multiline: False
                         input_filter: 'float'
-                        font_size: 20
+                        font_size: '15sp'
                         size_hint_x: 0.5
                         on_text: root.on_electrode_shift_input(self, self.text)
 
