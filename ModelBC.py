@@ -265,4 +265,3 @@ def AdjustpKaMonoprotic(pKo, I, TempC):
     A = 1.825*(10**6)*np.power(epsilon*degK, -3/2)
     temp = -b*I + np.sqrt(I)/(1+np.sqrt(I))
     return pKo - 2*A*temp
-
