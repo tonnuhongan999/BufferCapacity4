@@ -8,7 +8,7 @@ Buffercapacity4 is an Android application designed for the calculation and analy
 
 ### 1.1 Downloading the App
 
-1. **Obtain the APK file**: The download link for the Buffercapacity4 APK will be available on the USDA ARS website.
+1. **Obtain the APK file**: The download link for the Buffercapacity4 APK : https://drive.google.com/file/d/15H0QeO9CLyTxXWtqtNEhRBVB3Ym1SKx7/view?usp=sharing 
 2. **Download the file**: Click the link to start the download process. The APK file will be saved to your device's storage.
 
 ### 1.2 Installing the App
